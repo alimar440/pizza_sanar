@@ -49,6 +49,61 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: 'Password',
                   isPassword: true,
                 ),
+                //Mot de passe oublie
+                const SizedBox(height: 20.0),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Mot de passe oublie ?',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                // Bouton Login
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50.0,
+                        vertical: 15.0,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Connexion',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+
+                // Inscription
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Vous n'avez pas de compte ?",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Inscription',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

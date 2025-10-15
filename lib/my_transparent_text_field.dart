@@ -21,6 +21,7 @@ class MyTransparentTextField extends StatefulWidget {
 }
 
 class _MyTransparentTextFieldState extends State<MyTransparentTextField> {
+  late bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,11 +30,23 @@ class _MyTransparentTextFieldState extends State<MyTransparentTextField> {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: TextField(
-        obscureText: widget.isPassword,
+        obscureText: _obscureText && widget.isPassword,
         keyboardType: widget.keyboardType,
         style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
           prefixIcon: Icon(widget.icon, color: Colors.white),
+          suffixIcon: widget.isPassword
+              ? IconButton(
+                  icon: Icon(
+                    _obscureText ? Icons.visibility_off : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                )
+              : null,
           hintText: widget.hintText,
           labelText: widget.labelText,
           hintStyle: const TextStyle(color: Colors.white70),
